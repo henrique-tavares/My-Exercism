@@ -10,7 +10,7 @@ class Darts
   attr_reader :score
 
   def initialize(x, y)
-    case Math.sqrt(x ** 2 + y ** 2).ceil
+    case Math.hypot(x, y).ceil
     when (0..1)
       @score = 10
     when (2..5)
