@@ -7,7 +7,7 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Gigasecond
-  GIGASECOND = 1000000000
+  GIGASECOND = 1e9
 
   def self.from(time)
     time + GIGASECOND
