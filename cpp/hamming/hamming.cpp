@@ -5,7 +5,7 @@ using namespace std;
 
 namespace hamming
 {
-    unsigned int compute(string dna_1, string dna_2)
+    unsigned int compute(const string &dna_1, const string &dna_2)
     {
         unsigned int distance = 0;
 

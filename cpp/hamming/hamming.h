@@ -5,7 +5,7 @@
 
 namespace hamming
 {
-    unsigned int compute(std::string dna_1, std::string dna_2);
+    unsigned int compute(const std::string &dna_1, const std::string &dna_2);
 } // namespace hamming
 
 #endif // HAMMING_H
