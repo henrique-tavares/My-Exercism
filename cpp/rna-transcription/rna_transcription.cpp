@@ -6,9 +6,9 @@ namespace rna_transcription
 {
     string to_rna(string dna)
     {
-        for (char &it : dna)
+        for (char &c : dna)
         {
-            it = to_rna(it);
+            c = to_rna(c);
         }
 
         return dna;
