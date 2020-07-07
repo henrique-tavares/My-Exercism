@@ -51,9 +51,7 @@ namespace say
 
     string to_english(int num)
     {
-        // numbers from 1-19
-
-        map<int, string> distinct_numbers = {
+        map<int, string> number_map = {
             {1, "one"},
             {2, "two"},
             {3, "three"},
@@ -73,56 +71,25 @@ namespace say
             {17, "seventeen"},
             {18, "eighteen"},
             {19, "nineteen"},
+            {20, "twenty"},
+            {30, "thirty"},
+            {40, "forty"},
+            {50, "fifty"},
+            {60, "sixty"},
+            {70, "seventy"},
+            {80, "eighty"},
+            {90, "ninety"},
         };
 
-        if (distinct_numbers.count(num) != 0)
+        if (number_map.count(num))
         {
-            return distinct_numbers[num];
+            return number_map[num];
         }
 
-        // numbers from 20-99
-
-        if (num >= 20 && num < 30)
+        if (num > 20 && num < 100)
         {
-            return (num == 20) ? "twenty" : "twenty-" + to_english(num - 20);
+            return number_map[(num / 10) * 10] + "-" + to_english(num % 10);
         }
-
-        if (num >= 30 && num < 40)
-        {
-            return (num == 30) ? "thirty" : "thirty-" + to_english(num - 30);
-        }
-
-        if (num >= 40 && num < 50)
-        {
-            return (num == 40) ? "forty" : "forty-" + to_english(num - 40);
-        }
-
-        if (num >= 50 && num < 60)
-        {
-            return (num == 50) ? "fifty" : "fifty-" + to_english(num - 50);
-        }
-
-        if (num >= 60 && num < 70)
-        {
-            return (num == 60) ? "sixty" : "sixty-" + to_english(num - 60);
-        }
-
-        if (num >= 70 && num < 80)
-        {
-            return (num == 70) ? "seventy" : "seventy-" + to_english(num - 70);
-        }
-
-        if (num >= 80 && num < 90)
-        {
-            return (num == 80) ? "eighty" : "eighty-" + to_english(num - 80);
-        }
-
-        if (num >= 90 && num < 100)
-        {
-            return (num == 90) ? "ninety" : "ninety-" + to_english(num - 90);
-        }
-
-        // numbers from 100-999
 
         if (num >= 100 && num < 1000)
         {
