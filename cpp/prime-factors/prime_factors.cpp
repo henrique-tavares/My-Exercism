@@ -11,7 +11,7 @@ namespace prime_factors
         vector<int> primes;
         vector<int> prime_factors;
 
-        for (int maybe = 2; maybe <= num; maybe++)
+        for (int maybe = 2; num > 1; maybe++)
         {
             if (is_prime(primes, maybe))
             {
@@ -22,11 +22,6 @@ namespace prime_factors
             {
                 prime_factors.push_back(primes.back());
                 num /= primes.back();
-            }
-
-            if (num == 1)
-            {
-                break;
             }
         }
 
