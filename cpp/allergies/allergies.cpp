@@ -15,10 +15,7 @@ namespace allergies
                 continue;
             }
 
-            if (ALLERGIES.count((int)pow(2, i)))
-            {
-                allergies.insert(ALLERGIES.at((int)pow(2, i)));
-            }
+            allergies.insert(ALLERGIES.at((int)pow(2, i)));
         }
     }
 
