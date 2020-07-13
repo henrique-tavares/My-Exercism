@@ -8,15 +8,11 @@ pub fn verse(n: u32) -> String {
 }
 
 pub fn sing(start: u32, end: u32) -> String {
-    let mut song = String::new();
+    let mut song = vec![];
 
     for i in (end..=start).rev() {
-        if song.is_empty() {
-            song.push_str(&verse(i));
-        } else {
-            song.push_str(&("\n".to_string() + &verse(i)));
-        }
+        song.push(verse(i));
     }
 
-    song
+    song.join("\n")
 }
