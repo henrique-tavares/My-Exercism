@@ -4,9 +4,7 @@ class Phrase
   end
 
   def word_count
-    words = Hash.new(0)
-
-    @phrase.split(%r{[,\s]+}).each do |word|
+    @phrase.split(%r{[,\s]+}).each_with_object(Hash.new(0)) do |word, words|
       word = word[/(\w|')+/]
 
       if word.start_with?("'") && word.end_with?("'")
@@ -16,7 +14,5 @@ class Phrase
 
       words[word] += 1
     end
-
-    words
   end
 end
