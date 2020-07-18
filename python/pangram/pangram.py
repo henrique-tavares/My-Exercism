@@ -1,10 +1,8 @@
-from typing import Dict
+from typing import Set
 
 
 def is_pangram(sentence: str) -> bool:
     alphabet: str = "abcdefghijklmnopqrstuvwxyz"
-    letters: Dict[str, bool] = {
-        letter: True for letter in sentence.lower() if letter in alphabet
-    }
+    letters: Set[str] = {letter for letter in sentence.lower() if letter in alphabet}
 
     return len(letters) == len(alphabet)
