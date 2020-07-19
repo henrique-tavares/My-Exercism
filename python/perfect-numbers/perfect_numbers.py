@@ -1,6 +1,3 @@
-from typing import Tuple
-
-
 def classify(number: int) -> str:
     if number <= 0:
         raise ValueError("Not a natural number")
