@@ -20,19 +20,37 @@ namespace space_age
 
     class space_age
     {
-    private:
-        double _seconds;
-
     public:
         space_age(const unsigned long long &);
+
+        // Returns the age in seconds
         double seconds() const;
+
+        // Converts the age in seconds into mercury years
         double on_mercury() const;
+
+        // Converts the age in seconds into venus years
         double on_venus() const;
+
+        // Converts the age in seconds into earth years
         double on_earth() const;
+
+        // Converts the age in seconds into mars years
         double on_mars() const;
+
+        // Converts the age in seconds into jupiter years
         double on_jupiter() const;
+
+        // Converts the age in seconds into saturn years
         double on_saturn() const;
+
+        // Converts the age in seconds into uranus years
         double on_uranus() const;
+
+        // Converts the age in seconds into neptune years
         double on_neptune() const;
+
+    private:
+        double _seconds;
     };
 } // namespace space_age
