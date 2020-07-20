@@ -1,10 +1,9 @@
 module Raindrops
   def self.convert(number)
-    rain_sound = ""
-
-    rain_sound += "Pling" if number % 3 == 0
-    rain_sound += "Plang" if number % 5 == 0
-    rain_sound += "Plong" if number % 7 == 0
+    rain_sound = { 3 => "Pling", 5 => "Plang", 7 => "Plong" }.inject("") do |drops, (key, value)|
+      drops += value if number % key == 0
+      drops
+    end
 
     if rain_sound.empty?
       number.to_s
