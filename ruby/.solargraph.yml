@@ -8,8 +8,7 @@ exclude:
 - ".bundle/**/*"
 require: []
 domains: []
-reporters:
-- typecheck
+reporters: []
 require_paths: []
 plugins: []
 max_files: 5000
