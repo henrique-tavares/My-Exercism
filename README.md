@@ -3,7 +3,6 @@
 ---
 ### [Meu Perfil](https://exercism.io/profiles/henrique-tavares)
 
-Linguagens:
  - c++
  - ruby
  - python
