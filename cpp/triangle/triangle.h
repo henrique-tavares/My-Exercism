@@ -2,7 +2,7 @@
 
 namespace triangle
 {
-    enum flavor
+    enum class flavor
     {
         equilateral,
         isosceles,

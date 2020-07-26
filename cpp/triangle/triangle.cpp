@@ -5,7 +5,7 @@
 
 namespace triangle
 {
-    bool is_valid(const double &a, const double &b, const double &c)
+    bool is_valid(double a, double b, double c)
     {
         if (a <= 0 || b <= 0 || c <= 0)
         {
