@@ -6,64 +6,62 @@ using namespace std;
 
 namespace binary_search
 {
-    size_t recurssive_find(const vector<int> &data, int num, int index, int relative_size)
+    enum class find_order
+    {
+        first,
+        right,
+        left
+    };
+
+    size_t recurssive_find(const vector<int> &data, int num, int index, int relative_size, find_order order = find_order::first)
     {
         if (relative_size % 2 == 0)
         {
-            int index2 = index - 1;
-            relative_size--;
-
-            if (data[index] == num)
+            int index2;
+            switch (order)
             {
-                return index;
+            case find_order::first:
+                index2 = 0;
+                break;
+
+            case find_order::right:
+                index2 = index + relative_size / 2;
+                break;
+
+            case find_order::left:
+                index2 = index - relative_size / 2;
+                break;
             }
-            else if (data[index2] == num)
+
+            if (num == data[index2])
             {
                 return index2;
             }
-            else if (relative_size == 1)
-            {
-                throw domain_error("not found");
-            }
-            else if (num < data[index2])
-            {
-                relative_size /= 2;
-                index2 -= (relative_size % 2 == 0) ? relative_size / 2 : (relative_size / 2) + 1;
 
-                return recurssive_find(data, num, index2, relative_size);
-            }
-            else
-            {
-                relative_size /= 2;
-                index += (relative_size / 2) + 1;
+            relative_size--;
+        }
 
-                return recurssive_find(data, num, index, relative_size);
-            }
+        if (num == data[index])
+        {
+            return index;
+        }
+        else if (relative_size == 1)
+        {
+            throw domain_error("not found");
+        }
+        else if (num < data[index])
+        {
+            relative_size /= 2;
+            index -= (relative_size % 2 == 0) ? relative_size / 2 : (relative_size / 2) + 1;
+
+            return recurssive_find(data, num, index, relative_size, find_order::left);
         }
         else
         {
-            if (data[index] == num)
-            {
-                return index;
-            }
-            else if (relative_size == 1)
-            {
-                throw domain_error("not found");
-            }
-            else if (num < data[index])
-            {
-                relative_size /= 2;
-                index -= (relative_size % 2 == 0) ? relative_size / 2 : (relative_size / 2) + 1;
+            relative_size /= 2;
+            index += (relative_size % 2 == 0) ? relative_size / 2 : (relative_size / 2) + 1;
 
-                return recurssive_find(data, num, index, relative_size);
-            }
-            else
-            {
-                relative_size /= 2;
-                index += (relative_size / 2) + 1;
-
-                return recurssive_find(data, num, index, relative_size);
-            }
+            return recurssive_find(data, num, index, relative_size, find_order::right);
         }
     }
 
