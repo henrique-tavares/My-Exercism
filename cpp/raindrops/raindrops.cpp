@@ -6,7 +6,7 @@ namespace raindrops
 {
     string convert(int num)
     {
-        string rain_sounds = "";
+        string rain_sounds;
 
         rain_sounds += (num % 3 == 0) ? "Pling" : "";
         rain_sounds += (num % 5 == 0) ? "Plang" : "";
